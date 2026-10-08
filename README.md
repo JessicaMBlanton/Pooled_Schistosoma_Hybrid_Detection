@@ -8,14 +8,14 @@
 1. [Identification of off-target host amplification](code/04_Non_Schistosoma_read_mapping.md)
 1. [Estimate primer set contributions to off-target amplification](code/05_NonSchisto_primer_source.md)
 
-#### Raw data is available from NCBI's SRA under project PRJNA1267183
+Static versions of these documents will be made available on publication
+
+Raw nanopore sequence data is available from NCBI's SRA under project **PRJNA1267183**
 
 
--
-
-NOTE TO BE DELETED
+---
 
 *Priority was given to providing documentation for those processes which could not be done in say, excel: i.e. These workflows address handling of large files and specialize bioinformatics programs*.
 
-*Analyses commands in R (time permitting)
-- When figures and tables are finished, walk through each to identify other code that should be posted, especially if it is important but too complex to be in methods section (none comes to mind)*
+*Downstream analysis commands from R (time permitting): 
+When figures and tables are finished, walk through each to identify other code that should be posted, especially if it is important but too complex to be in methods section (none comes to mind)*
