@@ -10,7 +10,7 @@ Last updated 2026-10-08
 Process raw data from Oxford Nanopore sequencing of datasets containing pooled 18S, ITS, and COX1 marker amplifications
 
 - Libraries were prepared with Rapid Sequencing V14 kit SQK-RBK114.24 and sequenced on FLO-MN114 flow cells
-- Basecalled with dorado's "super sccurate" model `dna_r10.4.1_e8.2_400bps_sup@v5.0.0` via minknow desktop GUI
+- Basecalled with dorado's "super sccurate" model `dna_r10.4.1_e8.2_400bps_sup@v5.0.0` via MinKNOW desktop GUI
 - Barcodes were assigned per sample, basecalling combined markers into one datafile during 
 - This workflow uses looping. Alternatively could easily switch GNU-parallel in case of larger datasets.
 
@@ -29,11 +29,11 @@ Process raw data from Oxford Nanopore sequencing of datasets containing pooled 1
 
 Raw reads
 
-* `~/SHyb_2025/reads_combo_100425_SUP05/combo_*_raw.fastq.gz `
+* `~/SHyb_2025/reads_combo_100425_SUP05/combo_*_raw.fastq.gz`
 
 Sample Info
 
-* `~/SHyb_2025/run_metadata.txt`
+* `~/SHyb_2025/run_metadata.txt` [file available](../data/run_metadata.txt))
 
 ### **Outputs**
 
@@ -52,7 +52,7 @@ Get list of samples from metadata
 
 ```bash
 cd ~/SHyb_2025/
-cut -f1 run_metadata.txt > sample_IDS.txt
+cut -f1 run_metadata.txt | grep "#" -v > sample_IDS.txt
 ```
 #### Remove barcodes, length filter to > 200 bp
 

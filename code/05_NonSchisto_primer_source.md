@@ -12,7 +12,7 @@ There is a lot of human sequence in the urine field samples.  Used primer sequen
 These libraries were prepared using the rapid barcode kit chemistry with random fragmentation.  Do not expect primer sequences at all ends, so this analysis is an approximation.
 Evaluate which primer sets (18S, ITS, and COX1 genes) contribute the most unmapped reads.
 
-The remaining` unmapped_primercat.txt` and `mapped_primercat.txt` files are input for calculations and plotting in R.
+The resulting `unmapped_primercat.txt` and `mapped_primercat.txt` files are input for calculations and plotting in R.
 
 ### **Steps**
 
@@ -54,7 +54,7 @@ Primer sequences to look for
 
 ### **Outputs**
 
-Mapping read counts (also available from [this repository](../data/))
+Mapping read counts (available from [this repository](../data/))
 
 
 - `unmapped_primercat.txt`
@@ -73,6 +73,8 @@ Nanopore data: use cutadapt options:
                       Sequence of an adapter that may be ligated to the 5' or 3' end...`
                         
 `--match-read-wildcards Interpret IUPAC wildcards in reads`
+
+This loop will overwrite intermediate files each round
 
 ```bash
 mkdir ~/SHyb_2025/unmap_primer/
@@ -182,7 +184,7 @@ cat all_18S_reads_primerset.txt all_COX1_reads_primerset.txt | sort | uniq -c | 
 echo 'ITSSvCOX'
 cat all_ITS_reads_primerset.txt all_COX1_reads_primerset.txt | sort | uniq -c | grep "^[ ]*1" -v
 ```
-Cleanup intermediate files
+Cleanup remaining intermediate files
 
 ```bash
 rm reads_unmapped.fasta reads_mapped.fasta trimmed.fa noprim.fa *reads_primerset.txt *mapped.fasta

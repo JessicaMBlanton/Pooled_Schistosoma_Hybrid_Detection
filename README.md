@@ -1,53 +1,21 @@
 # Pooled_Schistosoma_Hybrid_Detection
 
-This repository contains workflows documenting programs and commands for:
+#### This repository contains workflows documenting programs and commands for:
 
-- [Reference species-indicative SNVs](code/01_Determination_of_reference_variants.md)  
-- [Processing of sequence reads](code/02_Read_processing.md)
-- [Variant calling with FreeBayes](code/03_Variant_calling.md)
-- [Identification of off-target host amplification](code/04_Non_Schistosoma_read_mapping.md)
-- [Estimate primer set contributions to off-target amplification](code/05_NonSchisto_primer_source.md)
+1. [Reference species-indicative SNVs](code/01_Determination_of_reference_variants.md)  
+1. [Processing of sequence reads](code/02_Read_processing.md)
+1. [Variant calling with FreeBayes](code/03_Variant_calling.md)
+1. [Identification of off-target host amplification](code/04_Non_Schistosoma_read_mapping.md)
+1. [Estimate primer set contributions to off-target amplification](code/05_NonSchisto_primer_source.md)
 
-
-Data files:
-
-01
-
-* Ref_18S_seqs.fasta
-* Ref_ITS_seqs.fasta
-* Ref_COX1_seqs.fasta
-* 18S_muscle.fasta
-* ITS_muscle.fasta
-* COX1_muscle.fasta
-* ref_snps.RData
-* expected_SNVs_extended.txt
-
-03
-
-* freebayes_all_SNVs.txt
-
-04
-
-* genome_idxstats.txt
-* Btaur_ctg_nms.txt
-* Hs_GRCh38_ctg_nms.txt
-* Maur_ctg_nms.txt
-* Mmus_ctg_nms.txt
-
-05
-
-* mapped_primercat.txt
-* unmapped_primercat.txt
+#### Raw data is available from NCBI's SRA under project PRJNA1267183
 
 
+-
 
-To do
-These are available on NCBI, but there were some extractions from genomes...
+NOTE TO BE DELETED
 
-- provide output files in gen.  This documentation could focus on the first steps to get away from any sequence handling (raw or ref)
-	
-- bc files for frequency counts from mapping
-- Metadata - sample_IDS.txt and sample_metadata.txt
+*Priority was given to providing documentation for those processes which could not be done in say, excel: i.e. These workflows address handling of large files and specialize bioinformatics programs*.
 
-Analyses (time permitting)
-- _Walk through figure by table to identify other code that should be posted_
+*Analyses commands in R (time permitting)
+- When figures and tables are finished, walk through each to identify other code that should be posted, especially if it is important but too complex to be in methods section (none comes to mind)*

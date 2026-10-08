@@ -1,0 +1,108 @@
+#Sample_ID	SRA Accession	Biosample Accession	BioSample.organism_name	sample_type	Country
+002_Gabon_LTVS008	SRR41072361	SAMN64032358	urine metagenome	field_sample	Gabon
+003_Gabon_LTVS009	SRR41072360	SAMN64032359	urine metagenome	field_sample	Gabon
+004_Gabon_LTVS017	SRR41072342	SAMN64032360	urine metagenome	field_sample	Gabon
+005_Gabon_LTVS026	SRR41072331	SAMN64032361	urine metagenome	field_sample	Gabon
+006_Gabon_LTVS020	SRR41072289	SAMN64032362	urine metagenome	field_sample	Gabon
+007_Gabon_LTVS028	SRR41072278	SAMN64032363	urine metagenome	field_sample	Gabon
+008_Gabon_LTVS030	SRR41072330	SAMN64032364	urine metagenome	field_sample	Gabon
+009_Gabon_LTVS024	SRR41072319	SAMN64032365	urine metagenome	field_sample	Gabon
+010_Gabon_LTVS052	SRR41072308	SAMN64032366	urine metagenome	field_sample	Gabon
+012_Gabon_LTVS061	SRR41072265	SAMN64032367	urine metagenome	field_sample	Gabon
+013_Gabon_LTVS062	SRR41072359	SAMN64032368	urine metagenome	field_sample	Gabon
+014_Gabon_LTVS063	SRR41072351	SAMN64032369	urine metagenome	field_sample	Gabon
+015_Gabon_LTVS066	SRR41072350	SAMN64032370	urine metagenome	field_sample	Gabon
+017_Gabon_LTVS069	SRR41072349	SAMN64032371	urine metagenome	field_sample	Gabon
+018_Gabon_LTVS071	SRR41072348	SAMN64032372	urine metagenome	field_sample	Gabon
+019_Gabon_LTVS073	SRR41072347	SAMN64032373	urine metagenome	field_sample	Gabon
+020_Gabon_LTVS074	SRR41072346	SAMN64032374	urine metagenome	field_sample	Gabon
+021_Gabon_LTVS048	SRR41072345	SAMN64032375	urine metagenome	field_sample	Gabon
+023_Gabon_LTVS080	SRR41072344	SAMN64032376	urine metagenome	field_sample	Gabon
+024_Gabon_LTVS078	SRR41072343	SAMN64032377	urine metagenome	field_sample	Gabon
+025_Gabon_LTVS0095	SRR41072341	SAMN64032378	urine metagenome	field_sample	Gabon
+026_Gabon_LTVS065	SRR41072340	SAMN64032379	urine metagenome	field_sample	Gabon
+028_Gabon_LTVS096	SRR41072339	SAMN64032380	urine metagenome	field_sample	Gabon
+029_Gabon_LTVS103	SRR41072338	SAMN64032381	urine metagenome	field_sample	Gabon
+030_Gabon_LTVS116	SRR41072337	SAMN64032382	urine metagenome	field_sample	Gabon
+031_Gabon_LTVS124	SRR41072336	SAMN64032383	urine metagenome	field_sample	Gabon
+032_Gabon_LTVS029	SRR41072335	SAMN64032384	urine metagenome	field_sample	Gabon
+037_Senegal_12ND/B	SRR41072334	SAMN64032385	urine metagenome	field_sample	Senegal
+038_Senegal_56ND/B	SRR41072333	SAMN64032386	urine metagenome	field_sample	Senegal
+039_Senegal_54ND/B	SRR41072332	SAMN64032387	urine metagenome	field_sample	Senegal
+040_Senegal_101ND/B	SRR41072299	SAMN64032388	urine metagenome	field_sample	Senegal
+041_Senegal_1ND/A	SRR41072298	SAMN64032389	urine metagenome	field_sample	Senegal
+042_Senegal_14ND/A	SRR41072297	SAMN64032390	urine metagenome	field_sample	Senegal
+054_Senegal_97ND/C	SRR41072296	SAMN64032391	urine metagenome	field_sample	Senegal
+057_Senegal_94ND/A	SRR41072295	SAMN64032392	urine metagenome	field_sample	Senegal
+060_Senegal_83/ND_Adulte	SRR41072294	SAMN64032393	urine metagenome	field_sample	Senegal
+061_Senegal_35ND/Adulte	SRR41072293	SAMN64032394	urine metagenome	field_sample	Senegal
+063_Senegal_5ND/Adulte	SRR41072292	SAMN64032395	urine metagenome	field_sample	Senegal
+068_Senegal_35_MB	SRR41072291	SAMN64032396	urine metagenome	field_sample	Senegal
+070_Senegal_46_MB	SRR41072290	SAMN64032397	urine metagenome	field_sample	Senegal
+071_Senegal_47_MB	SRR41072288	SAMN64032398	urine metagenome	field_sample	Senegal
+073_Senegal_59_MB	SRR41072287	SAMN64032399	urine metagenome	field_sample	Senegal
+074_Senegal_DKK1	SRR41072286	SAMN64032400	urine metagenome	field_sample	Senegal
+076_Senegal_DKK5	SRR41072285	SAMN64032401	urine metagenome	field_sample	Senegal
+078_Senegal_DKK7	SRR41072284	SAMN64032402	urine metagenome	field_sample	Senegal
+079_Senegal_DKK8	SRR41072283	SAMN64032403	urine metagenome	field_sample	Senegal
+080_Senegal_DKK9	SRR41072282	SAMN64032404	urine metagenome	field_sample	Senegal
+081_Senegal_DKK10	SRR41072281	SAMN64032405	urine metagenome	field_sample	Senegal
+082_Senegal_DKK11	SRR41072280	SAMN64032406	urine metagenome	field_sample	Senegal
+084_Senegal_DKK13	SRR41072279	SAMN64032407	urine metagenome	field_sample	Senegal
+086_Senegal_DKK17	SRR41072277	SAMN64032408	urine metagenome	field_sample	Senegal
+087_Senegal_DKK18	SRR41072276	SAMN64032409	urine metagenome	field_sample	Senegal
+088_Senegal_DKK20	SRR41072275	SAMN64032410	urine metagenome	field_sample	Senegal
+089_Senegal_DKK21	SRR41072274	SAMN64032411	urine metagenome	field_sample	Senegal
+090_Senegal_DKK22	SRR41072273	SAMN64032412	urine metagenome	field_sample	Senegal
+094_Senegal_DL4	SRR41072272	SAMN64032413	urine metagenome	field_sample	Senegal
+096_Senegal_DL6	SRR41072271	SAMN64032414	urine metagenome	field_sample	Senegal
+098_Senegal_DL9	SRR41072270	SAMN64032415	urine metagenome	field_sample	Senegal
+099_Senegal_DL10	SRR41072269	SAMN64032416	urine metagenome	field_sample	Senegal
+100_Senegal_DL11	SRR41072268	SAMN64032417	urine metagenome	field_sample	Senegal
+102_Senegal_DL15	SRR41072329	SAMN64032418	urine metagenome	field_sample	Senegal
+103_Senegal_DL16	SRR41072328	SAMN64032419	urine metagenome	field_sample	Senegal
+104_Senegal_DL17	SRR41072327	SAMN64032420	urine metagenome	field_sample	Senegal
+105_Senegal_DL18	SRR41072326	SAMN64032421	urine metagenome	field_sample	Senegal
+108_Senegal_DL21	SRR41072325	SAMN64032422	urine metagenome	field_sample	Senegal
+109_Senegal_DL23	SRR41072324	SAMN64032423	urine metagenome	field_sample	Senegal
+110_Senegal_DL24	SRR41072323	SAMN64032424	urine metagenome	field_sample	Senegal
+111_Senegal_KMS2	SRR41072322	SAMN64032425	urine metagenome	field_sample	Senegal
+112_Senegal_KMS5	SRR41072321	SAMN64032426	urine metagenome	field_sample	Senegal
+114_Senegal_KMS12	SRR41072320	SAMN64032427	urine metagenome	field_sample	Senegal
+115_Senegal_KMS14	SRR41072318	SAMN64032428	urine metagenome	field_sample	Senegal
+116_Senegal_KMS15	SRR41072317	SAMN64032429	urine metagenome	field_sample	Senegal
+117_Senegal_KMS16	SRR41072316	SAMN64032430	urine metagenome	field_sample	Senegal
+118_Senegal_KMS17	SRR41072315	SAMN64032431	urine metagenome	field_sample	Senegal
+119_Senegal_KMS19	SRR41072314	SAMN64032432	urine metagenome	field_sample	Senegal
+120_Senegal_KMS21	SRR41072313	SAMN64032433	urine metagenome	field_sample	Senegal
+121_Senegal_KMS25	SRR41072312	SAMN64032434	urine metagenome	field_sample	Senegal
+123_Senegal_MB9	SRR41072311	SAMN64032435	urine metagenome	field_sample	Senegal
+125_Senegal_MB18	SRR41072310	SAMN64032436	urine metagenome	field_sample	Senegal
+127_Senegal_ND10	SRR41072309	SAMN64032437	urine metagenome	field_sample	Senegal
+HB_01_Amix15a	SRR41072307	SAMN64040557	synthetic metagenome	Artificial mixed gDNA	
+HB_01_Amix15b	SRR41072306	SAMN64040558	synthetic metagenome	Artificial mixed gDNA	
+HB_05_Amix12a	SRR41072305	SAMN64040559	synthetic metagenome	Artificial mixed gDNA	
+HB_05_Amix12b	SRR41072304	SAMN64040560	synthetic metagenome	Artificial mixed gDNA	
+HB_20_Amix11a	SRR41072303	SAMN64040561	synthetic metagenome	Artificial mixed gDNA	
+HB_20_Amix11b	SRR41072302	SAMN64040562	synthetic metagenome	Artificial mixed gDNA	
+HB_80_Amix17a	SRR41072301	SAMN64040563	synthetic metagenome	Artificial mixed gDNA	
+HB_80_Amix17b	SRR41072300	SAMN64040564	synthetic metagenome	Artificial mixed gDNA	
+HB_95_Amix18a	SRR41072267	SAMN64040565	synthetic metagenome	Artificial mixed gDNA	
+HB_95_Amix18b	SRR41072266	SAMN64040566	synthetic metagenome	Artificial mixed gDNA	
+HB_99_Amix19a	SRR41072264	SAMN64040567	synthetic metagenome	Artificial mixed gDNA	
+HB_99_Amix19b	SRR41072263	SAMN64040568	synthetic metagenome	Artificial mixed gDNA	
+HM_01_Amix16a	SRR41072262	SAMN64040569	synthetic metagenome	Artificial mixed gDNA	
+HM_01_Amix16b	SRR41072261	SAMN64040570	synthetic metagenome	Artificial mixed gDNA	
+HM_05_Amix14a	SRR41072260	SAMN64040571	synthetic metagenome	Artificial mixed gDNA	
+HM_05_Amix14b	SRR41072259	SAMN64040572	synthetic metagenome	Artificial mixed gDNA	
+HM_20_Amix13a	SRR41072258	SAMN64040573	synthetic metagenome	Artificial mixed gDNA	
+HM_20_Amix13b	SRR41072257	SAMN64040574	synthetic metagenome	Artificial mixed gDNA	
+HM_80_Amix20a	SRR41072256	SAMN64040575	synthetic metagenome	Artificial mixed gDNA	
+HM_80_Amix20b	SRR41072255	SAMN64040576	synthetic metagenome	Artificial mixed gDNA	
+HM_95_Amix21a	SRR41072358	SAMN64040577	synthetic metagenome	Artificial mixed gDNA	
+HM_95_Amix21b	SRR41072357	SAMN64040578	synthetic metagenome	Artificial mixed gDNA	
+HM_99_Amix22a	SRR41072356	SAMN64040579	synthetic metagenome	Artificial mixed gDNA	
+HM_99_Amix22b	SRR41072355	SAMN64040580	synthetic metagenome	Artificial mixed gDNA	
+Sb	SRR41072354	SAMN64041782	Schistosoma bovis	control	
+Sh	SRR41072353	SAMN64034230	Schistosoma haematobium	control	
+Sm	SRR41072352	SAMN64035933	Schistosoma mansoni	control	

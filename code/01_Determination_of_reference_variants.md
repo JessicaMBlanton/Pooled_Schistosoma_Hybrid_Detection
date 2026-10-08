@@ -9,9 +9,9 @@ Last updated 2026-10-08
 
 Publicly deposited sequences for the 18S, ITS and COX1 genes from *S. bovis*, *S. curassoni*, *S. guineensis*, *S. mansoni*, *S. intercalatum* and *S. japonicum* were used to determine species-indicative variant positions versus the *S. haematobium* sequences.  
 
-These species were selected based on geographic overlap in Senegal and Gabon and prevalence on the African continent in humans and livestock. The human-infecting *S. japonicum* was included to add phylogenetic breadth.
+These species were selected based on geographic overlap in Senegal and Gabon and prevalence on the African continent in humans and livestock. The human-infecting *S. japonicum* was included to add phylogenetic breadth. Thus, the species-indicative SNVs identified here are relative to the taxa being compared, and may not be indicative across all known *Schistosoma* species.
 
-Thus, the species-indicative SNVs identified here are relative to the taxa being compared, and may not be indicative across all known *Schistosoma* species.
+The resulting `ref_snps.RData` file is input for calculations and plotting in R.
 
 ### **Steps**
 
@@ -39,7 +39,7 @@ Data
 * `Ref_ITS_seqs.fasta` 
 * `Ref_COX1_seqs.fasta` 
 
-(also available from [this repository](../data/))
+(available from [this repository](../data/))
 	
 * Amplicon positions on *S. haematobium* reference sequences
 	
@@ -58,7 +58,7 @@ Data
 * `ref_snps.RData` 
 * `expected_SNVs_extended.txt`
 
-(also available from [this repository](../data/))
+(available from [this repository](../data/))
 
 ---
 
@@ -87,11 +87,11 @@ cd ~/SHyb_2025/Ref_gene_seqs/
 
 # Collect sequences into multifasta files by gene and save in directory.  View sequence length stats
 
-seqkit stats *fasta
+seqkit stats *seqs.fasta
 	file                 format  type  num_seqs  sum_len  min_len  avg_len  max_len
 	Ref_18S_seqs.fasta   FASTA   DNA          7   13,549    1,862  1,935.6    1,992
 	Ref_COX1_seqs.fasta  FASTA   DNA          7   10,191      861  1,455.9    1,644
-	Ref_ITS_seqs.fasta   FASTA   DNA          7    6,419      800      917      956	
+	Ref_ITS_seqs.fasta   FASTA   DNA          7    6,419      800      917      956
 
 ```
 
@@ -306,14 +306,14 @@ head(ref_snps)
 	6           687           T Z11976_1_685_C             C     685       599  Sh    Sb Z11976_1         <NA>
 ```
 
-1532 SNVs found across all positions vs S. haematobium references
+There are 1532 SNVs found across all positions vs S. haematobium references
 
 ```R
 dim(ref_snps)
 [1] 1532   10
 ```
 
-454 SNVs found within PCR amplicons in this study 
+There are 454 SNVs found within PCR amplicons in this study 
 
 ```R
 dim(ref_snps[ref_snps$target_desig %in% "PCR_region",])
@@ -324,8 +324,9 @@ dim(ref_snps[ref_snps$target_desig %in% "PCR_region",])
 # Save object for downstream analyses
 save(ref_snps, file = "R_analysis/Rdata/ref_snps.RData")
 
-# Export dataframe for reference
-ref_snps%>%.[.$target_desig %in% "PCR_region",] %>%
+# Export dataframe to flatfile for reference
+ref_snps %>% 
+  .[.$target_desig %in% "PCR_region",] %>%
   group_by(chr, Ref, Query) %>%
   summarise(count=n()) %>%
   pivot_wider(., names_from = chr, values_from = count, values_fill = 0) %>%
