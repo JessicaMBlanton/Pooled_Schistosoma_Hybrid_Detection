@@ -1,4 +1,4 @@
-# Read Processing Nanopore raw reads
+# Read processing of nanopore raw reads
 
 Jessica Blanton
 
@@ -20,7 +20,7 @@ Process raw data from Oxford Nanopore sequencing of datasets containing pooled 1
 1. Length filter
 2. Record length stats
  
-### **Required programs**
+### **Programs**
 
 - Porechop v0.2.4
 - SeqKit v2.10.0
@@ -77,14 +77,40 @@ Get read statistics
 
 ```bash
 cd ~/SHyb_2025/reads_combo_100425_SUP05
-seqkit stats -j 20 --tabular combo_*_raw.fastq.gz ../combo_raw_stats.txt
+seqkit stats -j 20 --tabular combo_*_raw.fastq.gz combo_raw_stats.txt
 
-cd ~/SHyb_2025/trim_combo
-seqkit stats -j 20 --tabular combo_*_trim.fastq.gz ../combo_trim_stats.txt
+head combo_raw_stats.txt | column -t
+
+	file                           format  type  num_seqs  sum_len   min_len  avg_len  max_len
+	raw_kmkhyb_combo_001.fastq.gz  FASTQ   DNA   170846    41546399  62       243.2    105764
+	raw_kmkhyb_combo_002.fastq.gz  FASTQ   DNA   117928    36492269  66       309.4    82739
+	raw_kmkhyb_combo_003.fastq.gz  FASTQ   DNA   36450     12096194  62       331.9    1050
+	raw_kmkhyb_combo_004.fastq.gz  FASTQ   DNA   110577    28953438  59       261.8    300549
+	raw_kmkhyb_combo_005.fastq.gz  FASTQ   DNA   58798     18581423  70       316.0    3135
+	raw_kmkhyb_combo_006.fastq.gz  FASTQ   DNA   167249    42259557  65       252.7    4329
+	raw_kmkhyb_combo_007.fastq.gz  FASTQ   DNA   64427     19440417  63       301.7    2945
+	raw_kmkhyb_combo_008.fastq.gz  FASTQ   DNA   120442    36350116  68       301.8    9781
+	raw_kmkhyb_combo_009.fastq.gz  FASTQ   DNA   162606    47514954  62       292.2    172364
+	
 ```
 
 ```bash
-cd ~/SHyb_2025/
-wc -l combo_raw_stats.txt combo_trim_stats.txt sample_IDS.txt
+cd ~/SHyb_2025/trim_combo
+seqkit stats -j 20 --tabular combo_*_trim.fastq.gz combo_trim_stats.txt
+
+head combo_raw_stats.txt | column -t
+
+	file                           format  type  num_seqs  sum_len   min_len  avg_len  max_len
+	raw_kmkhyb_combo_001.fastq.gz  FASTQ   DNA   170846    41546399  62       243.2    105764
+	raw_kmkhyb_combo_002.fastq.gz  FASTQ   DNA   117928    36492269  66       309.4    82739
+	raw_kmkhyb_combo_003.fastq.gz  FASTQ   DNA   36450     12096194  62       331.9    1050
+	raw_kmkhyb_combo_004.fastq.gz  FASTQ   DNA   110577    28953438  59       261.8    300549
+	raw_kmkhyb_combo_005.fastq.gz  FASTQ   DNA   58798     18581423  70       316.0    3135
+	raw_kmkhyb_combo_006.fastq.gz  FASTQ   DNA   167249    42259557  65       252.7    4329
+	raw_kmkhyb_combo_007.fastq.gz  FASTQ   DNA   64427     19440417  63       301.7    2945
+	raw_kmkhyb_combo_008.fastq.gz  FASTQ   DNA   120442    36350116  68       301.8    9781
+	raw_kmkhyb_combo_009.fastq.gz  FASTQ   DNA   162606    47514954  62       292.2    172364
+	
 
 ```
+

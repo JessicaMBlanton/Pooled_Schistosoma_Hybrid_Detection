@@ -1,4 +1,4 @@
-# Mapping Non-Schistosome/off-target amplification
+# Mapping non-Schistosome/off-target amplification
 
 Jessica Blanton
 
@@ -19,7 +19,7 @@ The resulting `genome_idxstats.txt` file is input for calculations and plotting 
 3. Get mapping counts
 4. Record contig names per genome to associate hits with hosts
 
-### **Required programs**
+### **Programs**
 
 - SeqKit v2.10.0
 - Minimap2 v2.30-r1287
@@ -111,7 +111,6 @@ seqkit stats GRCh38_Mmus_Maur_Btaur_ShRefs.fna.gz
 
 file                                  format  type  num_seqs  sum_len         min_len  avg_len      max_len
 GRCh38_Mmus_Maur_Btaur_ShRefs.fna.gz  FASTA   DNA   8,839     11,165,281,644  205      1,263,183.8  248,956,422
-
 ```
 Mapping
 
@@ -150,7 +149,7 @@ rm GRCh38_rodent_Srefs GRCh38_Mmus_Maur_ShRefs.fna
 ```
 The file `genome_idxstats.txt` contains genome sequences (contigs & chromosomes) spread across multiple fasta entries .  
 
-Record contig names per host genome
+Record contig names per host genome for association of host source with mapping counts in downstream analysis.
 
 ```bash
 zgrep ">"  GCF_000001405.26_GRCh38_genomic.fna.gz | tr -d ">" | sed 's/ /\t/' > Hs_GRCh38_ctg_nms.txt

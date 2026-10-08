@@ -1,4 +1,4 @@
-# Variant calling workflow
+# Variant calling with FreeBayes
 
 Jessica Blanton
 
@@ -11,13 +11,13 @@ Identify SNVs present at a minimum of 1% of reads with the Bayesian genetic vari
 
 The resulting `mapped.txt` `combo_*_bc.tsv` and `freebayes_all_SNVs.txt` files are input for calculations and plotting in R.
 
-###**Steps**
+### **Steps**
 
 1. Trim Barcodes
 1. Length filter
 2. Record length stats
  
-### **Required programs**
+### **Programs**
 
 - SeqKit v2.10.0
 - Minimap2 v2.30-r1287
@@ -81,9 +81,10 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	~/SHyb_2025/trim_combo/combo_${i}_trim.fastq.gz |
 	samtools view -F 4 --threads 9 -b | samtools sort --threads 9 -O BAM --write-index -o  ~/SHyb_2025/mapping/combo_${i}_Sh.bam -
 done
+```
+Summarize number of reads mapped
 
-########## Summarize number of reads mapped
-
+```
 echo 'sample;GU257398.1_mapped;Z11976.1_mapped;NC_008074.1_mapped' | tr ";" "\t" > mapped.txt
 
 for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
@@ -91,6 +92,7 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	grep "*" -v | cut -f3 | tr '\n' '\t' | sed 's/\t$/\n/' |
 	sed "s/^/combo_${i}\t/" >> mapped.txt
 done
+
 ```
 Check mapping
 

@@ -22,7 +22,7 @@ The remaining` unmapped_primercat.txt` and `mapped_primercat.txt` files are inpu
 1. Get names all reads mapped/unmapped to Sh refs
 1. Tally all mapped/unmapped reads attributed to each primer set
  
-### **Required programs**
+### **Programs**
 
 - SeqKit v2.10.0
 - Minimap2 v2.30-r1287
@@ -76,13 +76,16 @@ Nanopore data: use cutadapt options:
 mkdir ~/SHyb_2025/unmap_primer/
 cd ~/SHyb_2025/unmap_primer/
 
+# Set up files to record results from looping
 echo 'sample;chr;unmapped_reads' | tr ";" "\t" > unmapped_primercat.txt
 echo 'sample;chr;mapped_reads' | tr ";" "\t" > mapped_primercat.txt
 
-###############################
+# Loop over all samples with minimap followed cutadapt per primer set
 
 for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 
+	# mapping
+	
 	minimap2 -ax map-ont -t 10 -k10 -w5 -sr --secondary=no -O 8,24 -E 4,2 \
 	~/SHyb_2025/Sh_hyb_refs.fasta \
 	~/SHyb_2025/trim_combo/combo_${i}_trim.fastq.gz |
@@ -92,7 +95,8 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	~/SHyb_2025/Sh_hyb_refs.fasta \
 	~/SHyb_2025/trim_combo/combo_${i}_trim.fastq.gz |
 	samtools view -F 4 --threads 10 -h | samtools fasta > reads_mapped.fasta
-	
+
+	############################################################
 	# 18S
 	
 	cutadapt -j 10 \
@@ -112,9 +116,7 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	seqkit seq --name --only-id | wc -l  | 
 	sed 's/^/set_18S\t/' | sed "s/^/${i}\t/" >> unmapped_primercat.txt
 	
-	###############################
-	
-	# ITS
+	############################################################	# ITS
 	
 	cutadapt -j 10 \
 	-b TCGTGCGTATTACACACACCATCGGTACAAACC \
@@ -133,9 +135,7 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	seqkit seq --name --only-id | wc -l  | 
 	sed 's/^/set_ITS\t/' | sed "s/^/${i}\t/" >> unmapped_primercat.txt
 	
-	###############################
-	
-	# COX1
+	############################################################	# COX1
 	
 	cutadapt -j 10 \
 	-b TTTTTTGGTCATCCTGAGGTGTAT \
@@ -154,7 +154,7 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 	seqkit seq --name --only-id | wc -l  | 
 	sed 's/^/set_COX1\t/' | sed "s/^/${i}\t/" >> unmapped_primercat.txt
 	
-	############ aggregate readnames to check overlap later:
+	###### aggregate readnames to check overlap later: ######
 	
 	cat 18S_reads_primerset.txt >> all_18S_reads_primerset.txt
 	cat ITS_reads_primerset.txt >> all_ITS_reads_primerset.txt
@@ -162,7 +162,7 @@ for i in `cat ~/SHyb_2025/sample_IDS.txt` ; do
 
 done
 ```
-Check that reads are unique to primer sets across all samples
+Check that reads are unique to primer sets across all samples. No results for each comparison indicates no duplicates
 
 ```bash
 cat all*reads_primerset.txt | sort | uniq -c | grep "^[ ]*1" -v

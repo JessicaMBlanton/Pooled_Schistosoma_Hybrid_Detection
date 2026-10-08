@@ -19,7 +19,7 @@ Thus, the species-indicative SNVs identified here are relative to the taxa being
 1. Sequences were aligned and trimmed to start positions of the *S. haematobium* sequence. 
 1. Polymorphic sites differing from *S. haematobium* were identified within each amplicon region using R packages.
  
-### **Required programs**
+### **Programs**
 
 Run from terminal
 
@@ -75,7 +75,7 @@ Accessions:
 
 ## Commands
 
-##### Prepare multi-sequence files
+#### Prepare multi-sequence files
 
 ```bash
 mkdir ~/SHyb_2025/Ref_gene_seqs/
@@ -88,7 +88,7 @@ Collect sequences into multifasta files by gene and save in directory:
 * `Ref_ITS_seqs.fasta`
 * `Ref_COX1_seqs.fasta`
 
-##### Align with muscle
+#### Align with muscle
 
 ```bash
 muscle -in Ref_18S_seqs_seqs.fasta -out 18S_muscle.afa 
@@ -101,7 +101,7 @@ seqkit sort ITS_muscle.afa --line-width 0 -o ITS_muscle_free.fasta
 seqkit sort COX1_muscle.afa --line-width 0 -o COX1_muscle_free.fasta
 
 ```
-##### Manually trim alignments to *S. haematobium* ends, as we will define the reference position for SNVs relative to the *S. haematobium* sequences. Could be done programmatically, but these are just 3 small files.
+#### Manually trim alignments to *S. haematobium* ends, as we will define the reference position for SNVs relative to the *S. haematobium* sequences. Could be done programmatically, but these are just 3 small files.
 
 Name final files as
 
@@ -111,7 +111,7 @@ Name final files as
 
 -
 
-####Identify expected SNV positions for each representative species reference
+### Identify expected SNV positions for each representative species reference
 
 *The following was done in R*
 
@@ -145,7 +145,7 @@ seqs_cox1 <- Ref_cox1_seqs$seq
 names(seqs_cox1) <- Ref_cox1_seqs$nam
 ```
 
-#### Extract differences from Sh ref for each query sequences, tag amplicon regions
+### Extract differences from Sh ref for each query sequences, tag amplicon regions
 
 18S
 
@@ -195,7 +195,7 @@ ref_snp_18S <-
 ```
 ITS - repeat as above
 
-```
+```R
 # Initialize new DF
 ref_snp_ITS <- data.frame()
 
@@ -237,7 +237,7 @@ ref_snp_ITS <-
 COX1 - repeat as above
 
 ```R
-Initialize new DF----
+Initialize new DF
 ref_snp_cox1 <- data.frame()
 
 for (j in seq_len(nrow(index_pairs))) {
@@ -274,7 +274,7 @@ ref_snp_cox1 <-
   unite("index", c("chr", "Pos_Ref", "SeqQuery_Char"), remove = F) 
   
 ```
-##### Create master list of reference SNVs
+#### Create master list of reference SNVs
 
 - NOTE: One SNV was discovered between two S. haematobium strains in the course of this study- removed as this is not a species-indicative position.
 
