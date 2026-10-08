@@ -5,17 +5,17 @@ Last updated 2026-10-08
 
 ---
 
-### **Purpose**:
+### **Purpose**
 
 Publicly deposited sequences for the 18S, ITS and COX1 genes from *S. bovis*, *S. curassoni*, *S. guineensis*, *S. mansoni*, and *S. japonicum* were used to determine species-indicative variant positions versus the *S. haematobium* sequences.  
 
 These species were selected based on geographic overlap in Senegal and Gabon and prevalence on the African continent in humans and livestock. The human-infecting *S. japonicum* was included to add phylogenetic breadth.
 
-Thus, the species-indicative SNVs identified here are relative to the taxa being compared, and may not be indicative across all known Schistosoma species.
+Thus, the species-indicative SNVs identified here are relative to the taxa being compared, and may not be indicative across all known *Schistosoma* species.
 
 ### **Steps**
 
-1. Retrieve reference sequences from 7 Schistosoma species. 
+1. Retrieve reference sequences from 7 *Schistosoma* species. 
 1. Sequences were aligned and trimmed to start positions of the *S. haematobium* sequence. 
 1. Polymorphic sites differing from *S. haematobium* were identified within each amplicon region using R packages.
  
@@ -38,14 +38,14 @@ Data
 * `Ref_18S_seqs_seqs.fasta`
 * `Ref_ITS_seqs.fasta`
 * `Ref_COX1_seqs.fasta`
-
-Amplicon positions on *S. haematobium* reference sequences
-
-|Gene|Sh amplicon positions|
-|----|---------------------|
-| 18S | 232-557 |
-| ITS | 274-878 |
-| COX1 | 719-1113 |
+	
+* Amplicon positions on *S. haematobium* reference sequences
+	
+	|Gene|Sh amplicon positions|
+	|----|---------------------|
+	| 18S | 232-557 |
+	| ITS | 274-878 |
+	| COX1 | 719-1113 |
 
 
 ### **Outputs**
@@ -73,7 +73,7 @@ Accessions:
 | *S. intercalatum* | CALYCO020000237.1: 16010-17998* | CALYCO020000237.1: 17980-18935* | OX103731.1: 574-2102* |
 \* positions extraction from genome
 
-### Commands
+## Commands
 
 ##### Prepare multi-sequence files
 
@@ -113,11 +113,12 @@ Name final files as
 
 ####Identify expected SNV positions for each representative species reference
 
-***The following was done in R***
+*The following was done in R*
 
-##### Import alignments
+Import alignments
 
 ```R
+# Load libraries
 library(tidyverse)
 library(seqinr)
 
@@ -127,7 +128,7 @@ setwd("~/SHyb_2025/Ref_gene_seqs/")
 index_pairs <- data.frame(ref = c("Sh", "Sh", "Sh", "Sh", "Sh","Sh"),
                           query = c("Sb", "Sc", "Sg", "Si", "Sj", "Sm"))
 
-# Load Aligned Sequences from FASTA
+# Import aligned sequences from FASTA
 Ref_18S_seqs <- read.alignment("~/SHyb_2025/Ref_gene_seqs/18S_muscle.fasta", 
   format = "fasta", forceToLower = FALSE)
 seqs_18S <- Ref_18S_seqs$seq
@@ -143,9 +144,8 @@ Ref_cox1_seqs <- read.alignment("~/SHyb_2025/Ref_gene_seqs/COX1_muscle.fasta",
 seqs_cox1 <- Ref_cox1_seqs$seq
 names(seqs_cox1) <- Ref_cox1_seqs$nam
 ```
-##### Extract differences from Sh ref for each query sequences
 
-- flag positions within this study's amplicon regions
+#### Extract differences from Sh ref for each query sequences, tag amplicon regions
 
 18S
 
@@ -236,7 +236,7 @@ ref_snp_ITS <-
 
 COX1 - repeat as above
 
-```
+```R
 Initialize new DF----
 ref_snp_cox1 <- data.frame()
 
@@ -278,7 +278,7 @@ ref_snp_cox1 <-
 
 - NOTE: One SNV was discovered between two S. haematobium strains in the course of this study- removed as this is not a species-indicative position.
 
-```
+```R
 # Combine SNVs for all markers
 ref_snps <- bind_rows(ref_snp_18S,
                       ref_snp_ITS,
@@ -288,9 +288,10 @@ ref_snps <- bind_rows(ref_snp_18S,
 ref_snps <- ref_snps[!grepl("NC_008074_1_786", ref_snps$index),]
 ```
 
-####Examine Reference SNV df 
+Examine Reference SNV df 
 
-`head(ref_snps)`
+```R
+head(ref_snps)
 
 	  Alignment_Pos SeqRef_Char          index SeqQuery_Char Pos_Ref Pos_Query Ref Query      chr target_desig
 	1            87           C  Z11976_1_87_T             T      87         1  Sh    Sb Z11976_1         <NA>
@@ -299,6 +300,7 @@ ref_snps <- ref_snps[!grepl("NC_008074_1_786", ref_snps$index),]
 	4           250           C Z11976_1_250_T             T     250       164  Sh    Sb Z11976_1   PCR_region
 	5           297           T Z11976_1_297_C             C     297       211  Sh    Sb Z11976_1   PCR_region
 	6           687           T Z11976_1_685_C             C     685       599  Sh    Sb Z11976_1         <NA>
+```
 
 1532 SNVs found across all positions vs S. haematobium references
 
@@ -319,11 +321,11 @@ dim(ref_snps[ref_snps$target_desig %in% "PCR_region",])
 save(ref_snps, file = "R_analysis/Rdata/ref_snps.RData")
 
 # Export dataframe for reference
-
 ref_snps%>%.[.$target_desig %in% "PCR_region",] %>%
-  group_by(chr, Ref, Query) %>%summarise(count=n()) %>%
+  group_by(chr, Ref, Query) %>%
+  summarise(count=n()) %>%
   pivot_wider(., names_from = chr, values_from = count, values_fill = 0) %>%
-  write.table(file = "R_analysis/export_tables/expected_SNVs_extended.txt", 
+  write.table(file = "~/SHyb_2025/Ref_gene_seqs/expected_SNVs_pcr.txt", 
               quote = F, sep = "\t", row.names = F)
 
 ```
