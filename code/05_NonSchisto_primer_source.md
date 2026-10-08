@@ -54,10 +54,12 @@ Primer sequences to look for
 
 ### **Outputs**
 
-Mapping read counts 
+Mapping read counts (also available from [this repository](data/))
+
 
 - `unmapped_primercat.txt`
 - `mapped_primercat.txt`
+
 
 Logfiles per sample
 

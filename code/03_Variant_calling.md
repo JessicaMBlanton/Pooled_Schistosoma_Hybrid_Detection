@@ -60,7 +60,7 @@ Mapping files, mapping count tallies, and mapping stats- per sample
 
 Variant calls
 
-* `freebayes_all_SNVs.txt`
+* `freebayes_all_SNVs.txt` [file available](data/freebayes_all_SNVs.txt))
 
 ## Commands
 

@@ -1,0 +1,8 @@
+Ref	Query	GU257398_1	NC_008074_1	Z11976_1
+Sh	Sb	4	41	2
+Sh	Sc	4	45	1
+Sh	Sg	4	39	1
+Sh	Si	4	42	1
+Sh	Sj	50	79	4
+Sh	Sm	24	75	2
+Sb	Sc	0	31	1

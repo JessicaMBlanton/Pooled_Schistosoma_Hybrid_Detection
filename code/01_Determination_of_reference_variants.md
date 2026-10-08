@@ -7,7 +7,7 @@ Last updated 2026-10-08
 
 ### **Purpose**
 
-Publicly deposited sequences for the 18S, ITS and COX1 genes from *S. bovis*, *S. curassoni*, *S. guineensis*, *S. mansoni*, and *S. japonicum* were used to determine species-indicative variant positions versus the *S. haematobium* sequences.  
+Publicly deposited sequences for the 18S, ITS and COX1 genes from *S. bovis*, *S. curassoni*, *S. guineensis*, *S. mansoni*, *S. intercalatum* and *S. japonicum* were used to determine species-indicative variant positions versus the *S. haematobium* sequences.  
 
 These species were selected based on geographic overlap in Senegal and Gabon and prevalence on the African continent in humans and livestock. The human-infecting *S. japonicum* was included to add phylogenetic breadth.
 
@@ -35,9 +35,11 @@ Run in R
 
 Data
 
-* `Ref_18S_seqs_seqs.fasta`
-* `Ref_ITS_seqs.fasta`
-* `Ref_COX1_seqs.fasta`
+* `Ref_18S_seqs_seqs.fasta` 
+* `Ref_ITS_seqs.fasta` 
+* `Ref_COX1_seqs.fasta` 
+
+(also available from [this repository](data/))
 	
 * Amplicon positions on *S. haematobium* reference sequences
 	
@@ -50,11 +52,13 @@ Data
 
 ### **Outputs**
 
-* `18S_muscle.fasta`
-* `ITS_muscle.fasta`
-* `COX1_muscle.fasta`
-* `ref_snps.RData`
+* `18S_muscle.fasta` 
+* `ITS_muscle.fasta` 
+* `COX1_muscle.fasta` 
+* `ref_snps.RData` 
 * `expected_SNVs_extended.txt`
+
+(also available from [this repository](data/))
 
 ---
 
@@ -81,33 +85,33 @@ Accessions:
 mkdir ~/SHyb_2025/Ref_gene_seqs/
 cd ~/SHyb_2025/Ref_gene_seqs/
 
-```
-Collect sequences into multifasta files by gene and save in directory:
+# Collect sequences into multifasta files by gene and save in directory.  View sequence length stats
 
-* `Ref_18S_seqs_seqs.fasta`
-* `Ref_ITS_seqs.fasta`
-* `Ref_COX1_seqs.fasta`
+seqkit stats *fasta
+	file                 format  type  num_seqs  sum_len  min_len  avg_len  max_len
+	Ref_18S_seqs.fasta   FASTA   DNA          7   13,549    1,862  1,935.6    1,992
+	Ref_COX1_seqs.fasta  FASTA   DNA          7   10,191      861  1,455.9    1,644
+	Ref_ITS_seqs.fasta   FASTA   DNA          7    6,419      800      917      956	
+
+```
 
 #### Align with muscle
 
 ```bash
-muscle -in Ref_18S_seqs_seqs.fasta -out 18S_muscle.afa 
-muscle -align Ref_ITS_seqs.fasta -output ITS_muscle.afa 
+muscle -in Ref_18S_seqs.fasta -out 18S_muscle.afa 
+muscle -in Ref_ITS_seqs.fasta -out ITS_muscle.afa 
 muscle -in Ref_COX1_seqs.fasta -out COX1_muscle.afa 
 
 # Unwrap lines
-seqkit sort 18S_muscle.afa --line-width 0 -o 18S_muscle_free.fasta
-seqkit sort ITS_muscle.afa --line-width 0 -o ITS_muscle_free.fasta
-seqkit sort COX1_muscle.afa --line-width 0 -o COX1_muscle_free.fasta
+seqkit sort 18S_muscle.afa --line-width 0 -o 18S_muscle.fasta
+seqkit sort ITS_muscle.afa --line-width 0 -o ITS_muscle.fasta
+seqkit sort COX1_muscle.afa --line-width 0 -o COX1_muscle.fasta
+
+# cleanup intermediate files
+rm *afa
 
 ```
-#### Manually trim alignments to *S. haematobium* ends, as we will define the reference position for SNVs relative to the *S. haematobium* sequences. Could be done programmatically, but these are just 3 small files.
-
-Name final files as
-
-* `18S_muscle.fasta`
-* `ITS_muscle.fasta`
-* `COX1_muscle.fasta`
+No need to trim alignments, R code below will defines the reference position for SNVs relative to the *S. haematobium* sequences.
 
 -
 
@@ -124,7 +128,7 @@ library(seqinr)
 
 setwd("~/SHyb_2025/Ref_gene_seqs/")
 
-# Setup comparison pairs
+# Setup comparison pairs (here is where SNV positions will be defined relative to the reference)
 index_pairs <- data.frame(ref = c("Sh", "Sh", "Sh", "Sh", "Sh","Sh"),
                           query = c("Sb", "Sc", "Sg", "Si", "Sj", "Sm"))
 

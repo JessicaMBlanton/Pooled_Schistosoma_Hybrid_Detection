@@ -52,7 +52,7 @@ Host genomes, which include MT genome
 
 Mapping read counts
 
-* `genome_idxstats.txt`
+* `genome_idxstats.txt` 
 
 Contig names for whole-genomes
 
@@ -60,6 +60,8 @@ Contig names for whole-genomes
 * `Mmus_ctg_nms.txt`
 * `Maur_ctg_nms.txt`
 * `Btaur_ctg_nms.txt`
+
+(output also available from [this repository](data/))
 
 ## Commands
 
