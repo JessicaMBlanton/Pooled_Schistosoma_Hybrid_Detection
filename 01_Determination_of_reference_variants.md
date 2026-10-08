@@ -1,11 +1,11 @@
 # Determination of reference variants
-
--
 Jessica Blanton
 
-Last updated 2025-10-04
+Last updated 2026-10-08
 
-###**Purpose**:
+---
+
+### **Purpose**:
 
 Publicly deposited sequences for the 18S, ITS and COX1 genes from *S. bovis*, *S. curassoni*, *S. guineensis*, *S. mansoni*, and *S. japonicum* were used to determine species-indicative variant positions versus the *S. haematobium* sequences.  
 
@@ -13,13 +13,13 @@ These species were selected based on geographic overlap in Senegal and Gabon and
 
 Thus, the species-indicative SNVs identified here are relative to the taxa being compared, and may not be indicative across all known Schistosoma species.
 
-###**Steps**
+### **Steps**
 
 1. Retrieve reference sequences from 7 Schistosoma species. 
 1. Sequences were aligned and trimmed to start positions of the *S. haematobium* sequence. 
 1. Polymorphic sites differing from *S. haematobium* were identified within each amplicon region using R packages.
  
-###**Required programs**
+### **Required programs**
 
 Run from terminal
 
@@ -31,7 +31,7 @@ Run in R
 - `tidyvers v 2.0.0`
 - `seqinr v 4.2.36`
 
-###**Inputs**
+### **Inputs**
 
 Data
 
@@ -39,14 +39,16 @@ Data
 * `Ref_ITS_seqs.fasta`
 * `Ref_COX1_seqs.fasta`
 
-Amplicon positions on *S. haematobium* reference sequences (obtained by visual examination)
+Amplicon positions on *S. haematobium* reference sequences
 
-* 18S 232-557
-* ITS 274-878
-* COX1 719-1113
+|Gene|Sh amplicon positions|
+|----|---------------------|
+| 18S | 232-557 |
+| ITS | 274-878 |
+| COX1 | 719-1113 |
 
 
-###**Outputs**
+### **Outputs**
 
 * `18S_muscle.fasta`
 * `ITS_muscle.fasta`
@@ -54,7 +56,7 @@ Amplicon positions on *S. haematobium* reference sequences (obtained by visual e
 * `ref_snps.RData`
 * `expected_SNVs_extended.txt`
 
--
+---
 
 NCBI nr sequences were downloaded where available, or were extracted from NCBI genome assemblies (*)
 
