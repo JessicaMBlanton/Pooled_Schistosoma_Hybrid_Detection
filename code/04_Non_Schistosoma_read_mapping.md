@@ -61,7 +61,7 @@ Contig names for whole-genomes
 * `Maur_ctg_nms.txt`
 * `Btaur_ctg_nms.txt`
 
-(output also available from [this repository](data/))
+(output also available from [this repository](../data/))
 
 ## Commands
 

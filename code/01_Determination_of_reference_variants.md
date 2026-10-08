@@ -39,7 +39,7 @@ Data
 * `Ref_ITS_seqs.fasta` 
 * `Ref_COX1_seqs.fasta` 
 
-(also available from [this repository](data/))
+(also available from [this repository](../data/))
 	
 * Amplicon positions on *S. haematobium* reference sequences
 	
@@ -58,7 +58,7 @@ Data
 * `ref_snps.RData` 
 * `expected_SNVs_extended.txt`
 
-(also available from [this repository](data/))
+(also available from [this repository](../data/))
 
 ---
 
